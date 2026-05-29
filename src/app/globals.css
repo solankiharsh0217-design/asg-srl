@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --color-coal:       #1C1917;
+  --color-coal-light: #292524;
+  --color-stone:      #44403C;
+  --color-gold:       #CA8A04;
+  --color-gold-light: #FDE68A;
+  --color-gold-pale:  #FFFBEB;
+  --color-ivory:      #FAFAF9;
+  --font-display: 'Cinzel', serif;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #FAFAF9;
+  color: #1C1917;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* ── Animations ──────────────────────────────── */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes gold-shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+.animate-fade-in-up { animation: fade-in-up 0.75s cubic-bezier(0.22,1,0.36,1) both; }
+.animate-fade-in    { animation: fade-in 0.9s ease both; }
+.animate-delay-100  { animation-delay: 100ms; }
+.animate-delay-200  { animation-delay: 200ms; }
+.animate-delay-300  { animation-delay: 300ms; }
+.animate-delay-400  { animation-delay: 400ms; }
+
+/* ── Scroll reveal ───────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22,1,0.36,1),
+              transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.reveal.revealed { opacity: 1; transform: translateY(0); }
+
+/* ── Typography helpers ──────────────────────── */
+.font-display { font-family: 'Cinzel', serif; }
+.font-body    { font-family: 'DM Sans', sans-serif; }
+
+/* ── Gold accent line ────────────────────────── */
+.gold-line {
+  width: 48px;
+  height: 2px;
+  background: #CA8A04;
+}
+.gold-line-full {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #CA8A04, transparent);
+}
+
+/* ── Card hover ──────────────────────────────── */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 60px rgba(28,25,23,0.15);
+}
+
+/* ── Image zoom ──────────────────────────────── */
+.img-zoom { overflow: hidden; }
+.img-zoom img {
+  transition: transform 0.55s cubic-bezier(0.22,1,0.36,1);
+}
+.img-zoom:hover img { transform: scale(1.06); }
+
+/* ── Section padding ─────────────────────────── */
+.section-pad { padding: 5rem 0; }
+@media (max-width: 768px) { .section-pad { padding: 3.5rem 0; } }
+
+/* ── Hero overlay ────────────────────────────── */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(28,25,23,0.55) 0%,
+    rgba(28,25,23,0.30) 50%,
+    rgba(28,25,23,0.72) 100%
+  );
+}
+
+/* ── Navbar blur ─────────────────────────────── */
+.navbar-blur {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* ── Gold shimmer text ───────────────────────── */
+.text-gold-shimmer {
+  background: linear-gradient(90deg, #CA8A04 0%, #FDE68A 50%, #CA8A04 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gold-shimmer 4s linear infinite;
+}
+
+/* ── Dark section ────────────────────────────── */
+.bg-coal  { background-color: #1C1917; }
+.bg-coal2 { background-color: #292524; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, .reveal, .animate-fade-in-up, .animate-fade-in {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
