@@ -144,13 +144,13 @@ export default function HomePage() {
               </h2>
             </div>
           </ScrollReveal>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 items-stretch">
             {CERTIFICATIONS.map((c, i) => {
               const icons = [Shield, Award, Factory];
               const Icon = icons[i];
               return (
-                <ScrollReveal key={c.code} delay={i * 100}>
-                  <div className="card-hover bg-white border border-[#1C1917]/8 p-8">
+                <ScrollReveal key={c.code} delay={i * 100} className="h-full">
+                  <div className="card-hover bg-white border border-[#1C1917]/8 p-8 h-full">
                     <div className="w-10 h-10 border border-[#CA8A04]/40 flex items-center justify-center mb-6">
                       <Icon size={18} className="text-[#CA8A04]" />
                     </div>

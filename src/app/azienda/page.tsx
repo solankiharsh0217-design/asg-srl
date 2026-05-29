@@ -102,10 +102,10 @@ export default function AziendaPage() {
               style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)", fontWeight: 700 }}>Certificazioni</h2>
           </div>
         </ScrollReveal>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-6 items-stretch">
           {CERTIFICATIONS.map((c, i) => (
-            <ScrollReveal key={c.code} delay={i * 100}>
-              <div className="bg-[#1C1917] p-8 border-l-2 border-[#CA8A04]">
+            <ScrollReveal key={c.code} delay={i * 100} className="h-full">
+              <div className="bg-[#1C1917] p-8 border-l-2 border-[#CA8A04] h-full">
                 <p className="font-display text-[#CA8A04] mb-1" style={{ fontSize: "0.9rem", fontWeight: 600 }}>{c.code}</p>
                 {c.year && <p className="font-display text-[9px] uppercase tracking-widest text-white/30 mb-3">Dal {c.year}</p>}
                 <p className="font-body text-sm text-white/60 leading-relaxed">{c.desc}</p>
