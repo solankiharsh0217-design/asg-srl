@@ -39,7 +39,7 @@ export default function AziendaPage() {
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center mb-20">
         <ScrollReveal>
           <div className="relative">
-            <Image src="/images/carp6.jpg" alt="ASG officina" width={580} height={440} className="object-cover w-full shadow-2xl" />
+            <Image src="/images/officina.jpg" alt="ASG officina" width={580} height={440} className="object-cover w-full shadow-2xl" />
             <div className="absolute -bottom-4 -right-4 w-full h-full border border-[#CA8A04]/30 pointer-events-none" />
           </div>
         </ScrollReveal>
